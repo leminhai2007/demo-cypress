@@ -4,6 +4,6 @@
   },
   "scripts": {
     "openCypress": "cypress open",
-    "runAllTestcase": "cypress run"
+    "runAllTestCases": "cypress run"
   }
 }
