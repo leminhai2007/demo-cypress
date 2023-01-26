@@ -6,8 +6,10 @@ FROM cypress/base:latest
 RUN node --version
 RUN npm --version
 WORKDIR /home/node/app
+# copy our test application
+COPY package.json package-lock.json ./
 # copy Cypress tests
-COPY cypress.config.js ./
+COPY cypress.config.js cypress ./
 COPY cypress ./cypress
 
 # avoid many lines of progress bars during install
