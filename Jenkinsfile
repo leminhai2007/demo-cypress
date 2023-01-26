@@ -9,16 +9,12 @@ pipeline {
    }
 
    stages {
-       stage('Dependencies') {
-           steps {
-               sh 'npm i'
-           }
-       }
-       stage('e2e Tests') {
-        steps {
+        stage('e2e Tests') {
+            steps {
+                sh 'npm ci'
                 sh 'npm run runAllTestCases'
-        }
+            }
 
-       }
+        }
    }
 }
