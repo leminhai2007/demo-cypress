@@ -7,7 +7,7 @@ RUN node --version
 RUN npm --version
 WORKDIR /home/node/app
 # copy Cypress tests
-COPY cypress.config.js cypress ./
+COPY cypress.config.js ./
 COPY cypress ./cypress
 
 # avoid many lines of progress bars during install
