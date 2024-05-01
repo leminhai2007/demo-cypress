@@ -1,9 +1,33 @@
 {
-  "dependencies": {
-    "cypress": "^12.4.0"
-  },
-  "scripts": {
-    "openCypress": "cypress open",
-    "runAllTestCases": "cypress run"
-  }
+    "name": "demo-cypress",
+    "version": "1.0.0",
+    "description": "For Demo Cypress with Cucumber",
+    "main": "index.js",
+    "scripts": {
+        "debug": "cypress open",
+        "test": "cypress run -b chrome --config viewportWidth=1920,viewportHeight=1080",
+        "test:chrome": "cypress run -b chrome --config viewportWidth=1920,viewportHeight=1080",
+        "test:firefox": "cypress run -b firefox --config viewportWidth=1920,viewportHeight=1080",
+        "test:edge": "cypress run -b edge --config viewportWidth=1920,viewportHeight=1080",
+        "test:chrome:mobile:landscape": "cypress run -b chrome --config viewportWidth=1024,viewportHeight=768",
+        "test:chrome:mobile:portrait": "cypress run -b chrome --config viewportWidth=768,viewportHeight=1024",
+        "prettier": "prettier . --write"
+    },
+    "author": "Hai Le",
+    "license": "MIT",
+    "dependencies": {
+        "@badeball/cypress-cucumber-preprocessor": "^20.0.1",
+        "@bahmutov/cypress-esbuild-preprocessor": "^2.2.0",
+        "@faker-js/faker": "^8.4.1",
+        "@types/google-libphonenumber": "^7.4.30",
+        "browserify": "^17.0.0",
+        "cypress": "^13.6.2",
+        "cypress-mochawesome-reporter": "^3.8.0",
+        "cypress-on-fix": "^1.0.2",
+        "google-libphonenumber": "^3.2.34",
+        "typescript": "^5.3.3"
+    },
+    "devDependencies": {
+        "prettier": "3.2.5"
+    }
 }

@@ -1,10 +1,46 @@
 # demo-cypress
+Foe demo and training
 
-# build docker image
-docker build . -t demo-cypress-image
+## Run test locally
 
-# run cypress test in container from above image
-# in Windows
-docker run --name demo-cypress-container -it demo-cypress-image -v %cd%:/opt/app npm run runAllTestCases
-# in MacOS / Linux
-docker run --name demo-cypress-container -it demo-cypress-image -v $PWD:/opt/app npm run runAllTestCases
+### Install dependencies
+
+```
+yarn install
+```
+
+### Run test
+
+```
+yarn test
+```
+
+### Run test with tag
+
+```
+yarn test --env tags=@start
+```
+
+**Note:** report file can be found at .\cypress\reports\html\
+
+## Run test in Docker
+
+### Build image
+
+```
+docker build . -t demo-cypress
+```
+
+### Create folder to store report
+
+```
+mkdir c:\reports
+```
+
+### Run container
+
+```
+docker run --rm -v c:\reports:/opt/app/cypress/reports demo-cypress
+```
+
+**Note:** report file can be found at c:\reports\html\

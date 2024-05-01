@@ -1,11 +1,25 @@
 # Args are defined in the Dockerfile before the FROM command.
-# Using these args will cause an image to be created with node (default version is 16.18.1), chrome, firefox and edge.
-ARG NODE_VERSION='18.13.0'
-ARG CYPRESS_VERSION='12.4.0'
-ARG CHROME_VERSION='109.0.5414.74-1'
-ARG EDGE_VERSION='108.0.1462.54-1'
-ARG FIREFOX_VERSION='109.0'
+ARG NODE_VERSION='20.9.0'
+ARG YARN_VERSION='1.22.19'
+ARG CHROME_VERSION='121.0.6167.85-1'
 
-# use Cypress provided image
+# Base image
 FROM cypress/factory
+
+# Copy cypress source code
 WORKDIR /opt/app
+COPY ./cypress ./cypress
+COPY ./.cypress-cucumber-preprocessorrc.json ./.cypress-cucumber-preprocessorrc.json
+COPY ./cypress.config.ts ./cypress.config.ts
+COPY ./package.json ./package.json
+COPY ./reporter-config.json ./reporter-config.json
+COPY ./tsconfig.json ./tsconfig.json
+
+# Install dependecies
+RUN yarn install
+
+# Set default environment variables for Cypress
+ENV CYPRESS_BASE_URL=https://docs.cypress.io
+
+# Run test
+CMD ["yarn", "test"]

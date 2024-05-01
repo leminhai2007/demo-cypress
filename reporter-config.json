@@ -1,0 +1,8 @@
+{
+    "charts": true,
+    "embeddedScreenshots": true,
+    "inlineAssets": true,
+    "reportPageTitle": "Demo Cypress Automation Testing Results",
+    "reportFilename": "demo_[datetime]_[status]",
+    "timestamp": "yyyymmddhhMMss"
+}
